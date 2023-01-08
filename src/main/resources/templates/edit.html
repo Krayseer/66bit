@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение</title>
+</head>
+<body>
+  <form th:method="PATCH" th:action="@{/players/{id}(id=${player.getId()})}" th:object="${player}">
+    <label for="name">Введите имя: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+
+    <label for="surname">Введите фамилию: </label>
+    <input type="text" th:field="*{surname}" id="surname"/>
+    <br/>
+
+    <label for="sex">Выберите пол: </label>
+    <select th:field="*{sex}" id="sex">
+      <option value="Мужской">Мужской</option>
+      <option value="Женский">Женский</option>
+    </select>
+    <br/>
+
+    <label for="birthDay">Дата рождения: </label>
+    <input type="text" th:field="*{birthDay}" id="birthDay"/>
+    <br/>
+
+    <label for="team">Введите команду: </label>
+    <input type="text" th:field="*{team}" id="team"/>
+    <br/>
+
+    <label for="country">Выберите страну: </label>
+    <select th:field="*{country}" id="country">
+      <option value="Россия">Россия</option>
+      <option value="США">США</option>
+      <option value="Италия">Италия</option>
+    </select>
+    <br/>
+
+    <input type="submit" value="Обновить"/>
+  </form>
+  <form th:method="DELETE" th:action="@{/players/{id}(id=${player.getId()})}">
+    <input type="submit" value="Удалить игрока"/>
+  </form>
+</body>
+</html>

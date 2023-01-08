@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Генерация</title>
+</head>
+<header style="margin-bottom: 20px;">
+    <a href="/players">Все игроки</a>
+</header>
+<body>
+  <form th:method="POST" th:action="@{/}" th:object="${player}">
+      <label for="name">Введите имя: </label>
+      <input type="text" th:field="*{name}" id="name"/>
+      <br/>
+
+      <label for="surname">Введите фамилию: </label>
+      <input type="text" th:field="*{surname}" id="surname"/>
+      <br/>
+
+      <label for="sex">Выберите пол: </label>
+      <select th:field="*{sex}" id="sex">
+          <option value="0"></option>
+          <option value="Мужской">Мужской</option>
+          <option value="Женский">Женский</option>
+      </select>
+      <br/>
+
+      <label for="birthDay">Дата рождения: </label>
+      <input type="text" th:field="*{birthDay}" id="birthDay"/>
+      <br/>
+
+      <label for="team">Введите команду: </label>
+      <input list="teams" th:field="*{team}" id="team"/>
+      <datalist id="teams">
+          <option th:each="team : ${teams}" th:value="${team}" th:text="${team}"></option>
+      </datalist>
+      <br/>
+
+      <label for="country">Выберите страну: </label>
+      <select th:field="*{country}" id="country">
+          <option value="0"></option>
+          <option value="Россия">Россия</option>
+          <option value="США">США</option>
+          <option value="Италия">Италия</option>
+      </select>
+      <br/>
+
+      <input type="submit" value="Создать"/>
+  </form>
+</body>
+</html>

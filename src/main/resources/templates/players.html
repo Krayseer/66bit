@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Футболисты</title>
+</head>
+<header style="margin-bottom: 20px;">
+    <a href="/">Создать нового игрока</a>
+</header>
+<body>
+  <div th:each="player : ${players}" style="display: flex; align-items: center; text-align: center; gap: 30px">
+      <p th:text="${player}"></p>
+      <form th:method="GET" th:action="@{/players/{id}/edit(id=${player.getId()})}">
+          <input type="submit" value="Редактировать"/>
+      </form>
+  </div>
+</body>
+</html>
